@@ -31,15 +31,15 @@ public class TestDemo {
             st = conn.createStatement();
 
             // 3. 执行sql语句，返回ResultSet
-            String sql = "select * from tb_stu1";
+            String sql = "select * from user_test";
             rs = st.executeQuery(sql);
 
             // 4. 遍历结果集
             while (rs.next()) {
                 String name = rs.getString("name");
-                int sex = rs.getInt("sex");
+                String password = rs.getString("passowrd");
 
-                System.out.println(name + "   " + sex);
+                System.out.println(name + "   " + password);
             }
         } catch (Exception e) {
             e.printStackTrace();

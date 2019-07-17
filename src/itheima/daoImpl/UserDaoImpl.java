@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
             //创建statement
             st = conn.createStatement();
 
-            String sql = "select * from user";
+            String sql = "select * from user_test";
             rs = st.executeQuery(sql);
 
             while (rs.next()){
