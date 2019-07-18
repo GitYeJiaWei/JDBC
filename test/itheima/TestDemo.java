@@ -7,15 +7,54 @@ import org.junit.jupiter.api.Test;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 
 /**
  * 使用junit执行单元测试
  */
 public class TestDemo {
     @Test
-    public void testDao(){
+    public void testDaofindALL(){
         UserDao userDao = new UserDaoImpl();
         userDao.findAll();
+    }
+
+    @Test
+    public void testDaoLogin(){
+        UserDao userDao = new UserDaoImpl();
+        userDao.login("lisi","123123213' or '1=1");
+        //userDao.login("lisi","123123");
+        //SELECT * FROM user_test WHERE account = 'lisi' AND `password`='1231234' OR 1=1
+    }
+
+    @Test
+    public void testDaoInsert(){
+        UserDao userDao = new UserDaoImpl();
+        userDao.insert("wangwu","23456");
+    }
+
+    @Test
+    public void testDaoDelete(){
+        UserDao userDao = new UserDaoImpl();
+        userDao.delete(2);
+    }
+
+    @Test
+    public void testDaoUpdate(){
+        UserDao userDao = new UserDaoImpl();
+        userDao.update(1,"465786");
+    }
+
+    @Test
+    public void testDaofind(){
+        UserDao userDao = new UserDaoImpl();
+        List<String>  stringList = userDao.find(2);
+        if (stringList.size()==0){
+            System.out.println("查询失败");
+        }
+        for (int i = 0; i < stringList.size(); i++) {
+            System.out.println(stringList.get(i));
+        }
     }
 
     @Test
@@ -51,7 +90,6 @@ public class TestDemo {
 
     @Test
     public void testInsert(){
-
         // 查询
         Connection conn = null;
         Statement st = null;
@@ -81,7 +119,6 @@ public class TestDemo {
 
     @Test
     public void testDelete(){
-
         // 查询
         Connection conn = null;
         Statement st = null;
