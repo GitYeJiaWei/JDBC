@@ -2,6 +2,7 @@ package itheima;
 
 import itheima.dao.UserDao;
 import itheima.daoImpl.UserDaoImpl;
+import itheima.test.TestTransation;
 import itheima.util.JDBCUtil;
 import org.junit.jupiter.api.Test;
 import java.sql.Connection;
